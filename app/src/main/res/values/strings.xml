@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Negi</string>
+    <string name="activity_main_header">Accounts</string>
+    <string name="activity_main_account_error">Unable to load accounts.</string>
+    <string name="activity_add_account_header">Add account</string>
+    <string name="activity_add_account_account_name_hint">Account name</string>
+    <string name="activity_add_account_username_hint">Username</string>
+    <string name="activity_add_account_secret_hint">Secret</string>
+    <string name="activity_add_account_done_button_label">Done</string>
+    <string name="activity_add_account_error">Couldn\'t add the account.</string>
+    <string name="activity_account_details_card_label_text">Verification code</string>
+    <string name="activity_auth_biometric_prompt_title">Authentication required</string>
+    <string name="activity_auth_biometric_prompt_subtitle">Verify your identity</string>
+</resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                style="?attr/collapsingToolbarLayoutLargeStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+                app:expandedTitleMarginStart="24dp"
+                app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
+                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.NonCollapsingToolbarText"
+                app:layout_scrollFlags="snap|exitUntilCollapsed">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/activity_add_account_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:elevation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/baseline_arrow_back_24"
+                    app:title="@string/activity_add_account_header">
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="18dp"
+                android:id="@+id/add_account_name_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_account_name_edit_text"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/gs_text_regular"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/activity_add_account_account_name_hint"
+                    android:inputType="textAutoComplete"
+                    android:letterSpacing="-0.01"
+                    android:maxLines="1"
+                    android:textSize="18sp" />
+                
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="18dp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/add_account_username_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_account_name_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_account_username_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gs_text_regular"
+                    android:hint="@string/activity_add_account_username_hint"
+                    android:inputType="text"
+                    android:letterSpacing="-0.01"
+                    android:autofillHints="username|email"
+                    android:maxLines="1"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="18dp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/add_account_token_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_account_username_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_account_secret_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gs_text_regular"
+                    android:letterSpacing="-0.01"
+                    android:hint="@string/activity_add_account_secret_hint"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/add_account_done_button"
+                        android:enabled="false"
+                        android:layout_gravity="end"
+                        android:text="@string/activity_add_account_done_button_label" />
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

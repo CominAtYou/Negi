@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/account_details_collapsing_layout"
+                style="?attr/collapsingToolbarLayoutLargeStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.NonCollapsingToolbarText"
+                app:expandedTitleMarginStart="104dp"
+                app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
+                app:layout_scrollFlags="snap|exitUntilCollapsed|scroll">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    app:layout_collapseMode="pin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/account_icon_container"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="6dp">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/account_icon_image_view"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/outline_account_circle_24"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircularCrop" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/account_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/gs_text_regular"
+                            tools:text="john.doe@example.com"
+                            app:layout_constraintStart_toEndOf="@id/account_icon_container"
+                            app:layout_constraintTop_toTopOf="@id/account_icon_container" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/activity_account_details_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:elevation="0dp"
+                    app:titleMarginStart="16dp"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/baseline_arrow_back_24"
+                    tools:title="Account">
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:contentPaddingBottom="14dp"
+                app:contentPaddingLeft="16dp"
+                app:contentPaddingRight="16dp"
+                app:contentPaddingTop="16dp"
+                style="?attr/materialCardViewFilledStyle"
+                android:id="@+id/verification_code_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/card_label_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/card_label"
+                        android:src="@drawable/outline_lock_24" />
+
+                    <TextView
+                        android:id="@+id/card_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/card_label_icon"
+                        android:fontFamily="@font/gs_text_regular"
+                        app:layout_constraintBottom_toTopOf="@id/otp_text_view"
+                        android:textSize="12sp"
+                        android:layout_marginStart="3dp"
+                        android:text="@string/activity_account_details_card_label_text" />
+
+                    <TextView
+                        android:id="@+id/otp_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ps_regular"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="?android:textColorPrimary"
+                        app:layout_constraintTop_toBottomOf="@id/card_label"
+                        android:textSize="28sp"
+                        android:layout_marginTop="3dp"
+                        android:text="155323" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ps_regular"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:text="30"
+                        android:id="@+id/code_refresh_countdown_text_view"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
