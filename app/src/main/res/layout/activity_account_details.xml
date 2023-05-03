@@ -119,6 +119,7 @@
                         android:layout_height="16dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:importantForAccessibility="no"
                         app:layout_constraintBottom_toBottomOf="@id/card_label"
                         android:src="@drawable/outline_lock_24" />
 
@@ -144,7 +145,7 @@
                         app:layout_constraintTop_toBottomOf="@id/card_label"
                         android:textSize="28sp"
                         android:layout_marginTop="3dp"
-                        android:text="155323" />
+                        tools:text="155323" />
 
                     <TextView
                         android:layout_width="wrap_content"
