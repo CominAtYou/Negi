@@ -5,6 +5,7 @@ on:
     paths:
       - '**.java'
       - '**.gradle.kts'
+      - '**.xml'
   workflow_dispatch:
 
 jobs:
