@@ -43,7 +43,8 @@ public class AddAccountActivity extends AppCompatActivity {
             final TwoFactorAccount newAccount = new TwoFactorAccount(
                     binding.addAccountNameEditText.getText().toString(),
                     binding.addAccountUsernameEditText.getText().toString(),
-                    binding.addAccountSecretEditText.getText().toString()
+                    binding.addAccountSecretEditText.getText().toString(),
+                    String.valueOf(System.currentTimeMillis())
             );
 
             try {

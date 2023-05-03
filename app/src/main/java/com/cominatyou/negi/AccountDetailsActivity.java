@@ -1,13 +1,8 @@
 package com.cominatyou.negi;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.util.TypedValue;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +15,7 @@ import com.google.android.material.color.DynamicColors;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import de.taimos.totp.TOTP;
@@ -44,7 +40,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
 
         binding.accountDetailsCollapsingLayout.setTitle(account.getName());
         binding.accountUsername.setText(account.getUsername());
-        binding.otpTextView.setText(TOTP.getOTP(account.getSecret()));
+        binding.otpTextView.setText(TOTP.getOTP(account.getHexEncodedSecret()));
 
         if (IconUtil.hasIcon(account.getName())) {
             final int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
@@ -58,7 +54,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
         binding.activityAccountDetailsToolbar.setNavigationOnClickListener(v -> finish());
 
         final Calendar now = Calendar.getInstance(TimeZone.getDefault());
-        final SimpleDateFormat sdf = new SimpleDateFormat("ss");
+        final SimpleDateFormat sdf = new SimpleDateFormat("ss", Locale.getDefault());
         final int secondsToRefresh = 30 - Integer.parseInt(sdf.format(now.getTime())) % 30;
         binding.codeRefreshCountdownTextView.setText(String.valueOf(secondsToRefresh));
 
@@ -70,7 +66,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                binding.otpTextView.setText(TOTP.getOTP(account.getSecret()));
+                binding.otpTextView.setText(TOTP.getOTP(account.getHexEncodedSecret()));
                 new CountDownTimer(30000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -78,7 +74,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
                     }
 
                     public void onFinish() {
-                        binding.otpTextView.setText(TOTP.getOTP(account.getSecret()));
+                        binding.otpTextView.setText(TOTP.getOTP(account.getHexEncodedSecret()));
                         start();
                     }
                 }.start();
