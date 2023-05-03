@@ -13,6 +13,7 @@ import com.cominatyou.negi.adapters.AccountsAdapter;
 import com.cominatyou.negi.data.UserAccounts;
 import com.cominatyou.negi.databinding.ActivityMainBinding;
 import com.cominatyou.negi.models.TwoFactorAccount;
+import com.cominatyou.negi.util.AuthUtil;
 import com.google.android.material.color.DynamicColors;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -33,8 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (AuthUtil.isAppLockEnabled(this)) {
+            final Intent intent = new Intent(this, AuthActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         DynamicColors.applyToActivityIfAvailable(this);
-        com.cominatyou.negi.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
