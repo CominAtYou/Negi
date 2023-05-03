@@ -3,16 +3,12 @@ package com.cominatyou.negi.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import androidx.security.crypto.EncryptedFile;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKey;
 
 import com.cominatyou.negi.models.TwoFactorAccount;
 import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
@@ -26,8 +22,6 @@ public class UserAccounts {
      */
     public static TwoFactorAccount[] getAccounts(Context context) throws GeneralSecurityException, IOException {
         final MasterKey masterKey = new MasterKey.Builder(context).setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build();
-
-        final File accountsFile = new File(context.getFilesDir(), "accounts_data");
 
         final SharedPreferences sharedPreferences = EncryptedSharedPreferences.create(
                 context,
