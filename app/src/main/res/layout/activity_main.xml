@@ -10,6 +10,7 @@
         android:id="@+id/activity_main_root_coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -66,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="24dp"
             android:id="@+id/add_accont_fab"
             app:tint="?attr/colorOnSurface"
             app:srcCompat="@drawable/ic_add_24" />
