@@ -35,8 +35,6 @@ public class TwoFactorAccount implements Serializable {
     }
 
     public String getHexEncodedSecret() {
-        final Base32 base32 = new Base32();
-        final byte[] bytes = base32.decode(secret);
-        return Hex.encodeHexString(bytes);
+        return Hex.encodeHexString(new Base32().decode(secret));
     }
 }
