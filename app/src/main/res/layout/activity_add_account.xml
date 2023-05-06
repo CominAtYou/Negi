@@ -123,13 +123,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/add_account_done_button"
-                        android:enabled="false"
-                        android:layout_gravity="end"
-                        android:text="@string/activity_add_account_done_button_label" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_account_done_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:enabled="false"
+                    android:fontFamily="@font/ps_medium"
+                    android:text="@string/activity_add_account_done_button_label" />
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
             
