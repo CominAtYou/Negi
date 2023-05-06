@@ -10,5 +10,7 @@
     <string name="activity_add_account_error">Couldn\'t add the account.</string>
     <string name="activity_account_details_card_label_text">Verification code</string>
     <string name="activity_auth_biometric_prompt_title">Authentication required</string>
-    <string name="activity_auth_biometric_prompt_subtitle">Verify your identity</string>
+    <string name="activity_auth_biometric_prompt_subtitle">Please verify your identity to access Negi</string>
+    <string name="activity_auth_keyguard_removed_toast_text">App lock was disabled because your screen lock was removed.</string>
+    <string name="activity_auth_unlock_button_text">Unlock Negi</string>
 </resources>

@@ -13,12 +13,19 @@ import com.cominatyou.negi.adapters.AccountsAdapter;
 import com.cominatyou.negi.data.UserAccounts;
 import com.cominatyou.negi.databinding.ActivityMainBinding;
 import com.cominatyou.negi.models.TwoFactorAccount;
-import com.cominatyou.negi.util.AuthUtil;
+import com.cominatyou.negi.util.SecurePrefUtil;
 import com.google.android.material.color.DynamicColors;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private AccountsAdapter adapter;
+    private boolean shouldDisplayBiometricPrompt = false;
+
+    private final ActivityResultLauncher<Intent> authLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == RESULT_OK) {
+            shouldDisplayBiometricPrompt = false;
+        }
+    });
 
     private final ActivityResultLauncher<Intent> addAccountLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result.getResultCode() != RESULT_OK) return;
@@ -35,12 +42,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (AuthUtil.isAppLockEnabled(this)) {
+        if (SecurePrefUtil.getBoolean(this, "app_lock_enabled", false)) {
             final Intent intent = new Intent(this, AuthActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-            return;
+            authLauncher.launch(intent);
         }
 
         DynamicColors.applyToActivityIfAvailable(this);
@@ -61,5 +65,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         binding.addAccontFab.setOnClickListener(v -> addAccountLauncher.launch(new Intent(this, AddAccountActivity.class)));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shouldDisplayBiometricPrompt = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (shouldDisplayBiometricPrompt && SecurePrefUtil.getBoolean(this, "app_lock_enabled", false)) {
+            final Intent intent = new Intent(this, AuthActivity.class);
+            authLauncher.launch(intent);
+        }
     }
 }
