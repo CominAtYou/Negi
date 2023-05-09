@@ -1,0 +1,28 @@
+name: submit-dependencies
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - "app/build.gradle.kts"
+    workflow_dispatch:
+
+jobs:
+    submit-dependencies:
+        name: 'Submit Dependencies'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: 'Checkout Repository'
+              uses: actions/checkout@v3
+            - name: 'Set up JDK'
+              uses: actions/setup-java@v3
+              with:
+                distribution: 'zulu'
+                java-version: '17'
+            - name: 'Submit Gradle Dependencies'
+              uses: mikepenz/gradle-dependency-submission@v0.8.6
+              with:
+                gradle-build-module: 'app'
