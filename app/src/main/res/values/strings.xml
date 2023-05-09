@@ -2,6 +2,9 @@
     <string name="app_name">Negi</string>
     <string name="activity_main_header">Accounts</string>
     <string name="activity_main_account_error">Unable to load accounts.</string>
+    <string name="activity_main_menu_settings_label">Settings</string>
+    <string name="activity_main_menu_export_accounts_label">Export accounts</string>
+    <string name="activity_main_add_account_fab_content_description">Add account</string>
     <string name="activity_add_account_header">Add account</string>
     <string name="activity_add_account_account_name_hint">Account name</string>
     <string name="activity_add_account_username_hint">Username</string>

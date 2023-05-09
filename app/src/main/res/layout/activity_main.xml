@@ -37,6 +37,8 @@
                     android:layout_height="58dp"
                     android:elevation="0dp"
                     app:layout_collapseMode="pin"
+                    app:popupTheme="@style/TextAppearance.App.GsTextRegular"
+                    app:menu="@menu/activity_main_menu"
                     app:title="@string/activity_main_header">
 
                 </com.google.android.material.appbar.MaterialToolbar>
@@ -68,6 +70,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
+            android:contentDescription="@string/activity_main_add_account_fab_content_description"
             android:id="@+id/add_accont_fab"
             app:tint="?attr/colorOnSurface"
             app:srcCompat="@drawable/ic_add_24" />
