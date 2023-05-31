@@ -16,7 +16,6 @@ import com.cominatyou.negi.AccountDetailsActivity;
 import com.cominatyou.negi.R;
 import com.cominatyou.negi.models.TwoFactorAccount;
 import com.cominatyou.negi.util.IconUtil;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;

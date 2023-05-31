@@ -30,7 +30,6 @@ public class AddAccountActivity extends AppCompatActivity {
                     binding.addAccountDoneButton.setEnabled(true);
                 }
             }
-
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             public void afterTextChanged(Editable s) {}
         };
