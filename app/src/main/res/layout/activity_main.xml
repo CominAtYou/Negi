@@ -28,7 +28,7 @@
                 app:expandedTitleMarginStart="24dp"
                 android:background="@android:color/transparent"
                 app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
-                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.NonCollapsingToolbarText"
+                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.ToolbarText"
                 app:layout_scrollFlags="snap|exitUntilCollapsed|scroll">
 
                 <com.google.android.material.appbar.MaterialToolbar
@@ -55,7 +55,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/accounts_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:listitem="@layout/account_card"
