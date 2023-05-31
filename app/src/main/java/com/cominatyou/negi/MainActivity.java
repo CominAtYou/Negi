@@ -65,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         binding.addAccontFab.setOnClickListener(v -> addAccountLauncher.launch(new Intent(this, AddAccountActivity.class)));
+
+        binding.mainActivityNavbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.activity_main_menu_settings) {
+                startActivity(new Intent(this, PreferencesActivity.class));
+                return true;
+            }
+            return false;
+        });
     }
 
     @Override

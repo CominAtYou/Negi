@@ -16,4 +16,15 @@
     <string name="activity_auth_biometric_prompt_subtitle">Please verify your identity to access Negi</string>
     <string name="activity_auth_keyguard_removed_toast_text">App lock was disabled because your screen lock was removed.</string>
     <string name="activity_auth_unlock_button_text">Unlock Negi</string>
+    <string name="activity_preferences_title">Settings</string>
+    <string name="activity_preferences_security_section_header">Security</string>
+    <string name="activity_preferences_app_lock_title">App lock</string>
+    <string name="activity_preferences_app_lock_description">Require biometric authentication or your screen lock when opening the app</string>
+    <string name="activity_preferences_app_lock_unavailable">Unavailable because no screen lock is set</string>
+    <string name="activity_preferences_general_section_header">General</string>
+    <string name="activity_preferences_theme_title">Theme</string>
+    <string name="activity_preferences_oss_title">Open-source licenses</string>
+    <string name="activity_preferences_oss_description">Licenses for libraries used to build this app</string>
+    <string name="activity_preferences_theme_default_description">Follow system</string>
+    <string name="activity_preferences_biometric_auth_description">Verify your screen lock to toggle app lock</string>
 </resources>

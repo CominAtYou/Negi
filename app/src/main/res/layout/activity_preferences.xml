@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreferencesActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            style="?attr/collapsingToolbarLayoutLargeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
+            app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.ToolbarText"
+            android:background="@android:color/transparent"
+            app:expandedTitleMarginStart="24dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                app:titleMarginStart="16dp"
+                app:layout_collapseMode="pin"
+                app:title="@string/activity_preferences_title"
+                android:elevation="0dp"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                android:id="@+id/top_bar"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/general_section_header"
+                style="@style/TextAppearance.AppCompat.MaterialSectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="36dp"
+                android:text="@string/activity_preferences_security_section_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/app_lock_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/general_section_header"
+                android:clickable="true"
+                android:paddingVertical="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/app_lock_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/activity_preferences_app_lock_title"
+                    style="@style/TextAppearance.AppCompat.LayoutTitle"/>
+                <TextView
+                    android:id="@+id/app_lock_preference_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="280dp"
+                    android:fontFamily="@font/gs_text_regular"
+                    app:layout_constraintStart_toStartOf="@id/app_lock_title"
+                    app:layout_constraintTop_toBottomOf="@id/app_lock_title"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/activity_preferences_app_lock_description"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/app_lock_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:checked="false"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/appearance_section_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.MaterialSectionHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/app_lock_layout"
+                android:text="@string/activity_preferences_general_section_header"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/theme_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:clickable="true"
+                android:paddingVertical="16dp"
+                android:background="?attr/selectableItemBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appearance_section_header"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/theme_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/activity_preferences_theme_title"
+                    style="@style/TextAppearance.AppCompat.LayoutTitle"/>
+
+                <TextView
+                    android:id="@+id/theme_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gs_text_regular"
+                    app:layout_constraintStart_toStartOf="@id/theme_header"
+                    app:layout_constraintTop_toBottomOf="@id/theme_header"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/activity_preferences_theme_default_description"
+                    tools:text="Follow system"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/about_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/theme_layout"
+                android:paddingVertical="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/about_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    style="@style/TextAppearance.AppCompat.LayoutTitle"
+                    android:text="@string/activity_preferences_oss_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/about_header"
+                    app:layout_constraintTop_toBottomOf="@id/about_header"
+                    android:layout_marginTop="2dp"
+                    android:maxWidth="280dp"
+                    android:fontFamily="@font/gs_text_regular"
+                    android:text="@string/activity_preferences_oss_description"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
