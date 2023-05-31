@@ -24,7 +24,7 @@
                 android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
                 app:expandedTitleMarginStart="24dp"
                 app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
-                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.NonCollapsingToolbarText"
+                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.ToolbarText"
                 app:layout_scrollFlags="snap|exitUntilCollapsed">
 
                 <com.google.android.material.appbar.MaterialToolbar
@@ -33,7 +33,7 @@
                     android:layout_height="58dp"
                     android:elevation="0dp"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/baseline_arrow_back_24"
+                    app:navigationIcon="@drawable/ic_arrow_back"
                     app:title="@string/activity_add_account_header">
 
                 </com.google.android.material.appbar.MaterialToolbar>

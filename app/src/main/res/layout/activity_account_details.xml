@@ -23,7 +23,7 @@
                 style="?attr/collapsingToolbarLayoutLargeStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
-                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.NonCollapsingToolbarText"
+                app:collapsedTitleTextAppearance="@style/ThemeOverlay.App.ToolbarText"
                 app:expandedTitleMarginStart="104dp"
                 app:expandedTitleTextAppearance="@style/TextAppearance.App.TitleLarge"
                 app:layout_scrollFlags="snap|exitUntilCollapsed|scroll">
@@ -81,7 +81,7 @@
                     android:elevation="0dp"
                     app:titleMarginStart="16dp"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/baseline_arrow_back_24"
+                    app:navigationIcon="@drawable/ic_arrow_back"
                     tools:title="Account">
 
                 </com.google.android.material.appbar.MaterialToolbar>
